@@ -100,7 +100,7 @@
 					</div>
 				</div>
 				<div class="copyright">
-					<p>Copyright © 2022220 Unyt Marketing Bureau</p>
+					<p>Copyright © 2021 Unyt Marketing Bureau</p>
 				</div>
 			</div>
 		</div><!-- .site-info -->
