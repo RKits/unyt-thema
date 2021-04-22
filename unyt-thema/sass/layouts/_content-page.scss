@@ -1,0 +1,26 @@
+.content-boxes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 80px;
+    margin-top: 80px;
+    .content-image{
+        padding: 30px;
+    }
+    .title{
+        color: black;
+    }
+    .content-text{
+    color: black;
+    line-height: 165%;
+    }
+}
+.bootstrap-card{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding: 30px 0px;
+    .card{
+        height: 604px;
+    }
+}

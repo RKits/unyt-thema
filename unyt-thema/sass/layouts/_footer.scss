@@ -1,0 +1,83 @@
+.footer-hr{
+    margin-bottom: 0px;
+}
+
+.site-footer{
+    .site-info{
+        padding-top: 60px;
+        background: $unyt-purple;
+        .footer-content{    
+            .footer-row{
+                display: flex;
+                .footer-columns{
+                    padding-bottom: 20px;
+                    text-align: center;
+                    color: white;
+                    a{
+                        color: white;
+                        .fab{
+                            margin-right: 15px;
+                            font-size: 20px;
+                        }
+                        img{
+                            height: 70px;
+                        }
+                    }  
+                    p{
+                        a{
+                            color: white;
+                            .fab{
+                                margin-right: 15px;
+                                font-size: 20px;
+                            }
+                            img{
+                                height: 70px;
+                            }
+                        } 
+                    } 
+ 
+                }
+            }
+        }
+        .copyright{
+            text-align: center;
+            color: white;
+            font-size: 12px;
+            p{
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .site-footer{
+        .site-info{
+            .footer-content{    
+                .footer-row{
+                    display: flex;
+                    color: white;
+                    // align-items: center;
+                    .footer-columns{
+                        padding-bottom: 20px;
+                        color: white;
+                        text-align: left;
+                        p{
+                            a{
+                            color: white;
+                                .fab{
+                                margin-right: 15px;
+                                font-size: 20px;
+                                }
+                                img{
+                                height: 70px;
+                                }
+                            }   
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

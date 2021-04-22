@@ -1,0 +1,172 @@
+.header{
+min-height: 80px;
+height: fit-content;
+display: flex;
+align-items: center;
+}
+
+#header{
+    .header-menu{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a{
+            z-index: 20;
+            img{
+                height: 70px;
+                background: transparent;
+            }
+        }
+        .wrapper{
+            z-index: 20;
+            .hamburger{
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                height: 35px;
+                .bar1, .bar2, .bar3 {
+                    width: 35px;
+                    height: 4px;
+                    background-color: #868686ba;
+                    transition: 0.4s;
+                }
+            }
+        }
+        .main-navigation{
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateY(-100%);
+            background: white;
+            width: 100%;
+            height: 100%;
+            transition: 0.6s ease-in-out;
+            display: flex;
+            align-items: center;
+            ul{
+                padding: 0%;
+                margin: 0%;
+                width: 100%;
+                li{
+                    text-align: center;
+                    list-style: none;
+                    a{
+                    color: black;
+                    text-decoration: none;
+                    font-size: 20px;
+                    display: block;
+                    padding: 3% 0%;
+                    }
+                    a:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .open{
+            body {
+                position: fixed;
+              }
+            transform: translate(0%);
+        }
+        .wrapper{
+            .change {
+                .bar1{
+                    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+                    transform: rotate(-45deg) translate(-9px, 6px);
+                }
+                .bar2 {
+                    opacity: 0;
+                }
+                .bar3 {
+                    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+                    transform: rotate(45deg) translate(-8px, -8px);
+                }
+            }
+        }
+    
+    }
+}  
+
+
+
+
+.slider{
+    background-size: cover;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .slider-content{
+        padding: 0px 30px;
+        .slider-title{
+        color: white;
+        }
+        .slider-text{
+            color: white;
+        }
+        a{
+            width: fit-content;
+        }
+    }
+}
+
+
+
+//////////////////////////////////////////////////////////////
+// TABLET
+
+@media only screen and (min-width: 768px){
+    #header{
+        .header-menu{
+            flex-direction: column;  
+            .wrapper{
+                display: none;
+            }
+            .main-navigation{
+                position: static;
+                transform: none;
+                #primary-menu{
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 0%;
+                    padding: 0%;
+                    li{
+                        list-style: none;
+                        a{
+                            text-decoration: none;
+                            color: black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+////////////////////////////////////////////////////////////
+//PC
+
+@media only screen and (min-width: 960px){
+    #header{
+        .header-menu{
+            display: flex;
+            flex-direction: row;
+
+            .main-navigation{
+                #primary-menu{
+                    justify-content: space-evenly;
+                }
+            }
+        }
+    }
+    .slider-content{
+        width: 50%;
+    }
+}
+
+

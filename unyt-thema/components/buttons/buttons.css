@@ -1,0 +1,36 @@
+.medium-button-white {
+	background: transparent;
+	border: 2px solid #6d3b83;
+	border-radius: 10%;
+	color: #6d3b83;
+	width: fit-content;
+	font-size: 20px;
+}
+
+.medium-button-white .button-a {
+	text-decoration: none;
+	color: #6d3b83;
+}
+
+.medium-button-white .button-a:visited {
+	color: #6d3b83;
+}
+
+.medium-button-black {
+	background: transparent;
+	border: 2px solid #6d3b83;
+	border-radius: 10%;
+	color: #6d3b83;
+	width: fit-content;
+}
+
+.medium-button-black .button-a {
+	text-decoration: none;
+	color: #6d3b83;
+}
+
+.medium-button-black .button-a:visited {
+	color: #6d3b83;
+}
+
+/*# sourceMappingURL=buttons.css.map */
