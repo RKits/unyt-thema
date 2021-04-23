@@ -41,7 +41,7 @@ function theme_settings_page()
 			<!-- de buttons om content te tonen -->
 			<div class="col-2" style="display: flex; flex-direction:column;">
 				<button type="button" class="btn btn-primary btn-lg kleuren" style="margin-bottom: 10px;">kleur</button>
-				<!-- <button type="button" class="btn btn-primary btn-lg logo" style="margin-bottom: 10px;">logo</button> -->
+				<button type="button" class="btn btn-primary btn-lg logo" style="margin-bottom: 10px;">logo</button>
 				<button type="button" class="btn btn-primary btn-lg tekst" style="margin-bottom: 10px;">tekst</button>
 					<?php
 					submit_button(); 
@@ -58,12 +58,12 @@ function theme_settings_page()
 					?>
 				</div>
 				<!-- de div voor de logo instellingen -->
-				<!-- <div class="col-10 disable logo-instellingen"> -->
+				<div class="col-10 disable logo-instellingen">
 				<?php
-						// settings_fields('kleur_section');
-						// do_settings_sections("kleur-options");
+						settings_fields('kleur_section');
+						do_settings_sections("logo-options");
 					?>
-				<!-- </div> -->
+				</div>
 				<!-- de div voor de tekst instellingen -->
 				<div class="col-10 disable tekst-instellingen">
 				<?php
@@ -95,12 +95,12 @@ add_action("admin_menu", "add_theme_menu_item");
      <?php
 // }
 
-// function display_logo_element()
-// {
-// 	?>
-<!-- //     	<input type="text" name="logo_afbeelding" id="logo_afbeelding" value="<?php// echo get_option('logo_afbeelding'); ?>" /> -->
-     <?php
-// }
+function display_logo_element()
+{
+	?>
+    	<input type="text" name="logo_afbeelding" id="logo_afbeelding" value="<?php echo get_option('logo_afbeelding'); ?>" />
+    <?php
+}
 function display_kleur_element()
 {
 	?>
@@ -129,14 +129,13 @@ function display_theme_panel_fields()
 	register_setting("kleur_section", "tekst_grootte");
 
 
+	add_settings_section("kleur_section", "logo instellingen", null, "logo-options");
+	add_settings_field("logo_afbeelding", "logo afbeelding", "display_logo_element", "logo-options", "kleur_section");
+	register_setting("kleur_section", "logo_afbeelding");
 
 
 
 
-
-	// add_settings_section("kleur_section", "kleur instellingen", null, "theme-options");
-	// add_settings_section("logo_sectionn", "logo instellingen", null, "logo-options");
-	// add_settings_section("sectio", "All Settings", null, "theme-optio");
 
 	
 	// add_settings_field("kleur_code", "kleur code", "display_kleur_element", "theme-options", "kleur_section");
@@ -164,12 +163,11 @@ add_action("admin_init", "display_theme_panel_fields");
       $(".logo-instellingen").addClass("disable");
       $(".tekst-instellingen").addClass("disable");
   });
-
-//   $(".logo").click(function(){
-//       $(".kleur-instellingen").addClass("disable");
-//       $(".logo-instellingen").removeClass("disable");
-//       $(".tekst-instellingen").addClass("disable");
-//   });
+  $(".logo").click(function(){
+      $(".kleur-instellingen").addClass("disable");
+      $(".logo-instellingen").removeClass("disable");
+      $(".tekst-instellingen").addClass("disable");
+  });
   $(".tekst").click(function(){
       $(".kleur-instellingen").addClass("disable");
       $(".logo-instellingen").addClass("disable");
