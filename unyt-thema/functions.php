@@ -184,13 +184,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 
-//footergegevens ophalen(moet nog geüpdate worden naar een database query)
 
 
-
-//het bestand voor de thema opties plugin
-include("footer-options-functions.php");
-
+//het bestand voor de themaopties plugin
 include('theme-options-functions.php');
 
-
+//het bestand voor de footeropties plugin
+include("footer-options-functions.php");

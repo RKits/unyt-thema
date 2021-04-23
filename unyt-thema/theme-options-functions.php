@@ -41,7 +41,7 @@ function theme_settings_page()
 			<!-- de buttons om content te tonen -->
 			<div class="col-2" style="display: flex; flex-direction:column;">
 				<button type="button" class="btn btn-primary btn-lg kleuren" style="margin-bottom: 10px;">kleur</button>
-				<button type="button" class="btn btn-primary btn-lg logo" style="margin-bottom: 10px;">logo</button>
+				<!-- <button type="button" class="btn btn-primary btn-lg logo" style="margin-bottom: 10px;">logo</button> -->
 				<button type="button" class="btn btn-primary btn-lg tekst" style="margin-bottom: 10px;">tekst</button>
 					<?php
 					submit_button(); 
@@ -58,16 +58,16 @@ function theme_settings_page()
 					?>
 				</div>
 				<!-- de div voor de logo instellingen -->
-				<div class="col-10 disable logo-instellingen">
+				<!-- <div class="col-10 disable logo-instellingen"> -->
 				<?php
 						// settings_fields('kleur_section');
 						// do_settings_sections("kleur-options");
 					?>
-				</div>
+				<!-- </div> -->
 				<!-- de div voor de tekst instellingen -->
 				<div class="col-10 disable tekst-instellingen">
 				<?php
-						settings_fields('tekst_section');
+						settings_fields('kleur_section');
 						do_settings_sections("text-options");
 					?>
 				</div>
@@ -91,14 +91,14 @@ add_action("admin_menu", "add_theme_menu_item");
 // function display_kleur_element()
 // {
 // 	?>
-<!-- //     	<input type="text" name="kleur_code" id="kleur_code" value="<?php echo get_option('kleur_code'); ?>" /> -->
+<!-- //     	<input type="text" name="kleur_code" id="kleur_code" value="<?php// echo get_option('kleur_code'); ?>" /> -->
      <?php
 // }
 
 // function display_logo_element()
 // {
 // 	?>
-<!-- //     	<input type="text" name="logo_afbeelding" id="logo_afbeelding" value="<?php echo get_option('logo_afbeelding'); ?>" /> -->
+<!-- //     	<input type="text" name="logo_afbeelding" id="logo_afbeelding" value="<?php// echo get_option('logo_afbeelding'); ?>" /> -->
      <?php
 // }
 function display_kleur_element()
@@ -118,20 +118,15 @@ function display_tekst_element()
 function display_theme_panel_fields()
 {
 	add_settings_section("kleur_section", "kleur instellingen", null, "kleur-options");
-
 	add_settings_field("kleur_code", "kleur code", "display_kleur_element", "kleur-options", "kleur_section");
-
 	register_setting("kleur_section", "kleur_code");
 
 
 
 
-
-	add_settings_section("tekst_section", "tekst instellingen", null, "text-options");
-
-	add_settings_field("tekst_grootte", "text grootte", "display_tekst_element", "text-options", "tekst_section");
-
-	register_setting("tekst_section", "tekst_grootte");
+	add_settings_section("kleur_section", "tekst instellingen", null, "text-options");
+	add_settings_field("tekst_grootte", "text grootte", "display_tekst_element", "text-options", "kleur_section");
+	register_setting("kleur_section", "tekst_grootte");
 
 
 
@@ -152,12 +147,6 @@ function display_theme_panel_fields()
     // register_setting("kleur_section", "kleur_code");
     // register_setting("logo_sectionn", "logo_afbeelding");
 	// register_setting("sectio", "facebook_url");
-
-
-
-
-
-
 }
 
 add_action("admin_init", "display_theme_panel_fields");
@@ -176,11 +165,11 @@ add_action("admin_init", "display_theme_panel_fields");
       $(".tekst-instellingen").addClass("disable");
   });
 
-  $(".logo").click(function(){
-      $(".kleur-instellingen").addClass("disable");
-      $(".logo-instellingen").removeClass("disable");
-      $(".tekst-instellingen").addClass("disable");
-  });
+//   $(".logo").click(function(){
+//       $(".kleur-instellingen").addClass("disable");
+//       $(".logo-instellingen").removeClass("disable");
+//       $(".tekst-instellingen").addClass("disable");
+//   });
   $(".tekst").click(function(){
       $(".kleur-instellingen").addClass("disable");
       $(".logo-instellingen").addClass("disable");
