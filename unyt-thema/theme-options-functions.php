@@ -34,57 +34,44 @@ Version: 0.1
 function theme_settings_page()
 {
     ?>
-	    <div class="wrap">
-	    <h1>Theme Panel</h1>
-	    <form method="post" action="options.php">
-
+	<div class="wrap">
+		    <h1>Theme Panel</h1>
+		    <form method="post" action="options.php">
 		<div class="row">
+			<!-- de buttons om content te tonen -->
 			<div class="col-2" style="display: flex; flex-direction:column;">
-			<button type="button" class="btn btn-primary btn-lg kleuren" style="margin-bottom: 10px;">kleur</button>
-			<button type="button" class="btn btn-primary btn-lg tekst" style="margin-bottom: 10px;">Tekst</button>
-			<button type="button" class="btn btn-primary btn-lg" style="margin-bottom: 10px;">Logo</button>
-
-			<?php
-			submit_button(); 
-    
-
-	        ?>   
+				<button type="button" class="btn btn-primary btn-lg kleuren" style="margin-bottom: 10px;">kleur</button>
+				<button type="button" class="btn btn-primary btn-lg tekst" style="margin-bottom: 10px;">logo</button>
+				<button type="button" class="btn btn-primary btn-lg logo" style="margin-bottom: 10px;">tekst</button>
+					<?php
+					submit_button(); 
+		    		?>   
 			</div>
-
-			<div class="col-10">
-
-			<div class="kleur-instellingen">
-			
-			
-			<?php
-
-				            settings_fields("section");
-							
-							?>
-			</div>
-			<div class="tekst-instellingen">
-
-							<?php
-							settings_fields('tekst');
-							?>
-
-			</div>
-
-							<?php
-
-
-							do_settings_sections("theme-options");  
-
-							
-
-			?>
-				    
-			</div>
+			<!-- de verschillende opties die getoont worden bij het klikken van de buttons -->
+				<!-- de div voor de kleur instellingen -->
+				<div class="col-10 kleur-instellingen">
+					<?php
+						settings_fields("section");		
+						do_settings_sections("theme-options");  
+					?>
+				</div>
+				<!-- de div voor de logo instellingen -->
+				<div class="col-10 disable logo-instellingen">
+				<?php
+						settings_fields('logo');
+						do_settings_sections("logo-options");
+					?>
+				</div>
+				<!-- de div voor de tekst instellingen -->
+				<div class="col-10 disable tekst-instellingen">
+				<?php
+						settings_fields('tekst');
+						do_settings_sections("text-options");
+					?>
+				</div>
 		</div>
-       
-
-		</div>
-	<?php
+	</div>
+		<?php
 }
 
 
@@ -103,28 +90,37 @@ add_action("admin_menu", "add_theme_menu_item");
 function display_kleur_element()
 {
 	?>
-    	<input type="text" name="twitter_url" id="twitter_url" value="<?php echo get_option('twitter_url'); ?>" />
+    	<input type="text" name="kleur_code" id="kleur_code" value="<?php echo get_option('kleur_code'); ?>" />
     <?php
 }
 
-function display_facebook_element()
+function display_logo_element()
 {
 	?>
-    	<input type="text" name="facebook_url" id="facebook_url" value="<?php echo get_option('facebook_url'); ?>" />
+    	<input type="text" name="logo_afbeelding" id="logo_afbeelding" value="<?php echo get_option('logo_afbeelding'); ?>" />
+    <?php
+}
+function display_tekst_element()
+{
+	?>
+    	<input type="text" name="tekst_grootte" id="tekst_grootte" value="<?php echo get_option('tekst_grootte'); ?>" />
     <?php
 }
 
 function display_theme_panel_fields()
 {
-	add_settings_section("section", "kleur Settings", null, "theme-options");
-	add_settings_section("tekst", "tekst Settings", null, "theme-options");
+	add_settings_section("section", "kleur instellingen", null, "theme-options");
+	add_settings_section("logo", "logo instellingen", null, "logo-options");
+	add_settings_section("tekst", "tekst instellingen", null, "text-options");
 
 	
-	add_settings_field("twitter_url", "Twitter Profile Url", "display_kleur_element", "theme-options", "section");
-    add_settings_field("facebook_url", "Facebook Profile Url", "display_facebook_element", "theme-options", "tekst");
+	add_settings_field("kleur_code", "kleur code", "display_kleur_element", "theme-options", "section");
+    add_settings_field("logo_afbeelding", "logo afbeelding", "display_logo_element", "logo-options", "logo");
+	add_settings_field("tekst_grootte", "text grootte", "display_tekst_element", "text-options", "tekst");
 
-    register_setting("section", "twitter_url");
-    register_setting("tekst", "facebook_url");
+    register_setting("section", "kleur_code");
+    register_setting("logo", "logo_afbeelding");
+	register_setting("tekst", "tekst_grootte");
 }
 
 add_action("admin_init", "display_theme_panel_fields");
@@ -141,16 +137,17 @@ add_action("admin_init", "display_theme_panel_fields");
       $(".kleur-instellingen").removeClass("disable");
       $(".logo-instellingen").addClass("disable");
       $(".tekst-instellingen").addClass("disable");
-      $(".knop-instellingen").addClass("disable");
-      $(".social-media-instellingen").addClass("disable");
   });
 
-  $(".tekst").click(function(){
+  $(".logo").click(function(){
       $(".kleur-instellingen").addClass("disable");
       $(".logo-instellingen").removeClass("disable");
       $(".tekst-instellingen").addClass("disable");
-      $(".knop-instellingen").addClass("disable");
-      $(".social-media-instellingen").addClass("disable");
+  });
+  $(".tekst").click(function(){
+      $(".kleur-instellingen").addClass("disable");
+      $(".logo-instellingen").addClass("disable");
+      $(".tekst-instellingen").removeClass("disable");
   });
 
 });
