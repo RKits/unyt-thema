@@ -105,6 +105,8 @@ endif;
 add_action( 'after_setup_theme', 'unyt_thema_setup' );
 
 
+
+
 //Enqueue scripts and styles.
 function unyt_thema_scripts() {
 	// deregister default jQuery included with Wordpress
@@ -129,7 +131,7 @@ function unyt_thema_styles() {
 	wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css' );
 	
 	//Main CSS
-	wp_enqueue_style( 'unyt-thema-style', '/wp-content/themes/unyt-thema/style.css', array(), _S_VERSION );
+	wp_enqueue_style( 'unyt-thema-style', '/wp-content/themes/unyt-thema/style.php', array(), _S_VERSION );
 }
 add_action( 'wp_enqueue_scripts', 'unyt_thema_styles' );
 
@@ -191,3 +193,8 @@ include('theme-options-functions.php');
 
 //het bestand voor de footeropties plugin
 include("footer-options-functions.php");
+
+// add_action('wp_head', 'my_custom_css');
+// function my_custom_css(){
+// require_once( get_template_directory() . '/style.php' );
+// }

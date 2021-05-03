@@ -141,4 +141,4 @@
 			?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+</article>#post-<?php the_ID(); ?>

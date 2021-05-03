@@ -7,6 +7,11 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 	<?php wp_head(); ?>
 </head>
+<style>
+/* .wrapper{
+	background: <?php //echo $background?>;
+} */
+</style>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
@@ -15,6 +20,7 @@
 	<header class="header">
 		<div id="header" class="container">
 			<div class="header-menu">
+			
 				<!-- de foto voor de header -->
 				<a href="<?php echo home_url(); ?>">
 					<?php 
@@ -46,7 +52,6 @@
 		</div>
 	</header>
 </div>
-
 
 <!-- slick slider aanmaken -->
 <?php

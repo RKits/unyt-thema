@@ -1,6 +1,15 @@
 <?php
-	include("/Users/unyt/.bitnami/stackman/machines/xampp/volumes/root/htdocs/Unyt thema/wp-content/themes/unyt-thema/footer-options-functions.php");
+	// include("/Users/unyt/.bitnami/stackman/machines/xampp/volumes/root/htdocs/Unyt thema/wp-content/themes/unyt-thema/footer-options-functions.php");
 ?>
+
+<style>
+
+.geen-media{
+	display: none;
+}
+
+</style>
+
 <hr class="footer-hr">
 <footer id="colophon" class="site-footer">
 		<div class="site-info">
@@ -14,8 +23,8 @@
 							$telefoon = get_option('telefoon');
 						?>
 						<p><?php echo $adres ?></p>
-						<p><?php echo $email ?></p>
-						<p><?php echo $telefoon ?></p>
+						<p><a href="mailto:<?php echo $email ?>"><?php echo $email ?></a></p>
+						<p><a href="tel:<?php echo $telefoon ?>"><?php echo $telefoon ?></a></p>
 						
 
 					</div>
@@ -36,7 +45,6 @@
 						<p><a target="_blank" href="<?php echo $voorwaarden_url ?>"><?php echo $voorwaarden ?></a></p>
 						<p><a target="_blank" href="<?php echo $privacy_url ?>"><?php echo $privacy ?></a></p>
 					</div>
-
 
 
 					<div class="footer-columns col-xs-12 col-md-6 col-lg-3">

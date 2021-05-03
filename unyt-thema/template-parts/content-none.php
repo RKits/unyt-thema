@@ -48,4 +48,4 @@
 		endif;
 		?>
 	</div><!-- .page-content -->
-</section><!-- .no-results -->
+</section>.no-results
